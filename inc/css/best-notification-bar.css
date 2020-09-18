@@ -1,0 +1,358 @@
+/**
+ * Plugin Name:       Best Notification Bar
+ * Plugin URI:        https://staged.fun/plugins/best-notification-bar
+ * Description:       Adds a static but hidable Notification bar at the top or bottom of the page. Where you can show stuffs. 
+ * Version:           1.0
+ * Requires at least: 2.9.0
+ * Requires PHP:      4.3 or higher
+ * Author:            Asif Chowdhury
+ * Author URI:        https://staged.fun/
+ * License:           GPL v2 or later
+ * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain:       best-notification-bar
+ * Domain Path:       /languages
+ */
+
+.bnb div,
+.bnb span,
+.bnb h1,
+.bnb h2,
+.bnb h3,
+.bnb h4,
+.bnb h5,
+.bnb h6,
+.bnb p,
+.bnb blockquote,
+.bnb pre,
+.bnb a,
+.bnb img,
+.bnb dl,
+.bnb dt,
+.bnb dd,
+.bnb ol,
+.bnb ul,
+.bnb li,
+.bnb fieldset,
+.bnb form,
+.bnb label,
+.bnb legend,
+.bnb table,
+.bnb caption,
+.bnb tbody,
+.bnb tfoot,
+.bnb thead,
+.bnb tr,
+.bnb th,
+.bnb td,
+.bnb article,
+.bnb aside,
+.bnb details,
+.bnb footer,
+.bnb header,
+.bnb menu,
+.bnb meter,
+.bnb nav,
+.bnb output,
+.bnb progress,
+.bnb section,
+.bnb summary {
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+    margin: 0;
+    padding: 0;
+}
+
+.bnb {
+    line-height: 1
+}
+
+.bnb article,
+.bnb aside,
+.bnb dialog,
+.bnb figure,
+.bnb footer,
+.bnb header,
+.bnb nav,
+.bnb section,
+.bnb blockquote {
+    display: block
+}
+
+.bnb nav ul {
+    list-style: none
+}
+
+.bnb ol {
+    list-style: decimal
+}
+
+.bnb ul {
+    list-style: disc
+}
+
+.bnb ul ul {
+    list-style: circle
+}
+
+.bnb blockquote,
+.bnb q {
+    quotes: none
+}
+
+.bnb blockquote:before,
+.bnb blockquote:after,
+.bnb q:before,
+.bnb q:after {
+    content: none
+}
+
+.bnb table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.bnb input,
+.bnb select,
+.bnb a img {
+    vertical-align: middle
+}
+
+.bnb,
+.bnb *,
+.bnb *:before,
+.bnb *:after {
+    box-sizing: border-box;
+}
+
+.bnb .screen-reader-text {
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
+    overflow: hidden;
+    position: absolute;
+    max-height: 1px;
+}
+
+.bnb {
+    text-align: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+    transition: all 0.25s linear;
+    -webkit-backface-visibility: hidden;
+    min-height: 30px;
+}
+
+.bnb .bnb-container {
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 100%;
+    width: 1000px;
+    padding: 10px 60px;
+    line-height: 1.4
+}
+
+.admin-bar .bnb.bnb-fixed.bnb-top,
+#wp-toolbar .bnb.bnb-fixed.bnb-top {
+    top: 32px
+}
+
+.bnb-container-outer {
+    position: relative
+}
+
+.bnb-clearfix:before,
+.bnb-clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.bnb-clearfix:after {
+    clear: both
+}
+
+.bnb-clearfix {
+    *zoom: 1
+}
+
+.bnb .bnb-show {
+    padding: 10px
+}
+
+.bnb-hide,
+.bnb-show {
+    position: absolute;
+    right: 20px;
+    background-color: inherit;
+    color: #fff;
+    font-size: 18px!important;
+    line-height: 50px;
+    text-align: center;
+    box-sizing: initial;
+    line-height: 1;
+}
+
+.bnb-top .bnb-show {
+    bottom: 1px;
+}
+
+.bnb-bottom .bnb-show {
+    top: 1px;
+}
+
+.bnb-hide {
+    top: 50%;
+    background: transparent;
+    margin-top: -9px!important;
+}
+
+.bnb-hide span {
+    display: inline-block;
+    -webkit-transform: rotate(45deg) translate3d(0, 0, 0);
+    transform: rotate(45deg) translate3d(0, 0, 0);
+}
+
+.bnb-hidden {
+    transition: -webkit-transform ease 0.3s;
+    transition: transform ease 0.3s;
+}
+
+.bnb-hidden.bnb-top {
+    -webkit-transform: translateY(-100%) translate3d(0, 0, 0);
+    transform: translateY(-100%) translate3d(0, 0, 0);
+}
+
+.bnb-hidden.bnb-bottom {
+    -webkit-transform: translateY(100%) translate3d(0, 0, 0);
+    transform: translateY(100%) translate3d(0, 0, 0);
+}
+
+.bnb-hidden .bnb-show {
+    transition: -webkit-transform ease 0.3s;
+    transition: transform ease 0.3s;
+}
+
+.bnb-hidden.bnb-top .bnb-show {
+    -webkit-transform: translateY(100%) translate3d(0, 0, 0);
+    transform: translateY(100%) translate3d(0, 0, 0);
+}
+
+.bnb-hidden.bnb-bottom .bnb-show {
+    -webkit-transform: translateY(-100%) translate3d(0, 0, 0);
+    transform: translateY(-100%) translate3d(0, 0, 0);
+}
+
+.bnb-shown {
+    transition: -webkit-transform ease 0.3s;
+    transition: transform ease 0.3s;
+    -webkit-transform: translateY(0%) translate3d(0, 0, 0);
+    transform: translateY(0%) translate3d(0, 0, 0);
+}
+
+.bnb-hidden .bnb-hide,
+.bnb-shown .bnb-show {
+    display: none
+}
+
+body.has-bnb {
+    transition: padding-top ease 0.3s, padding-bottom ease 0.3s;
+    width: 100%;
+    height: 100%;
+    float: left;
+    position: relative;
+    box-sizing: border-box;
+    /*overflow: hidden;*/
+}
+
+.bnb a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.bnb .bnb-text,
+.bnb .bnb-button,
+.bnb .bnb-text,
+.bnb input {
+    margin: .2em .5em
+}
+
+.bnb input {
+    padding: 6px 10px;
+    font-size: 12px;
+    border-radius: 3px;
+    color: #666;
+    border: 0;
+    font-family: inherit;
+}
+
+.bnb .bnb-button {
+    display: inline-block;
+    padding: 6px 10px;
+    font-size: 12px;
+    border-radius: 3px;
+    color: #fff!important;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.bnb .bnb-message {
+    display: block
+}
+
+
+/* css scroll animation start */
+
+.bnb-content.scroll {
+    /* Starting position */
+    -moz-transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+    /* Apply animation to this element */
+    -moz-animation: scrollAnimation 15s linear infinite;
+    -webkit-animation: scrollAnimation 15s linear infinite;
+    animation: scrollAnimation 15s linear infinite;
+}
+
+@-moz-keyframes scrollAnimation {
+    0% {
+        -moz-transform: translateX(100%);
+    }
+    100% {
+        -moz-transform: translateX(-100%);
+    }
+}
+
+@-webkit-keyframes scrollAnimation {
+    0% {
+        -webkit-transform: translateX(100%);
+    }
+    100% {
+        -webkit-transform: translateX(-100%);
+    }
+}
+
+@keyframes scrollAnimation {
+    0% {
+        -moz-transform: translateX(100%);
+        /* Firefox bug fix */
+        -webkit-transform: translateX(100%);
+        /* Firefox bug fix */
+        transform: translateX(100%);
+    }
+    100% {
+        -moz-transform: translateX(-100%);
+        /* Firefox bug fix */
+        -webkit-transform: translateX(-100%);
+        /* Firefox bug fix */
+        transform: translateX(-100%);
+    }
+}
+
+
+/* css scroll animation end */
