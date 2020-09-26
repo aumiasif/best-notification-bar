@@ -1,15 +1,15 @@
 # best-notification-bar
 
-=== Latest Post Widget ===
-Contributors: asifrohan
-Tags: Notification Bar, Best Notification Bar, Latest Post
-Donate link: https://staged.fun/donation/
-Requires at least: 2.9.0
-Tested up to: 5.5.1
-Requires PHP: 5.2.4
-Stable tag: tag
-License: GPL v2 or later
-License URI: https://www.gnu.org/licenses/gpl-2.0.html
+#=== Latest Post Widget ===
+#Contributors: asifrohan
+#Tags: Notification Bar, Best Notification Bar, Latest Post
+#Donate link: https://staged.fun/donation/
+#Requires at least: 2.9.0
+#Tested up to: 5.5.1
+#Requires PHP: 5.2.4
+#Stable tag: tag
+#License: GPL v2 or later
+#License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 Best notification bar plugin for wordpress. Adds a static but hidable Notification bar at the top or bottom of the page. Where you can show stuffs.
 
@@ -23,7 +23,7 @@ Still a working progress, features those works now are as follows:
 
 Updates will be released very soon.
 
-== Installation ==
+#== Installation ==
 Install the plugin form WordPress's plugin repository or simply download it and upload it form add new plugin section from admin. Before doing anything, regenerate thumbnails. Cause this plugin uses a different thumbnail size. 
 
 You will find a menu called BNB Settings, where you can change settings.
