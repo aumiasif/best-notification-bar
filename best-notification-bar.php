@@ -14,20 +14,20 @@
  * Domain Path:       /languages
  */
  
- define ('MY_PLUGIN_PATH' , plugin_dir_path( __FILE__ ));
+ define ('Best_Notification_Bar_Path' , plugin_dir_path( __FILE__ ));
  include __DIR__.'/inc/notification-bar.php'; /*notification bar generator*/
  include __DIR__.'/inc/bnb-settings-page.php'; /*notification bar settings*/
  include __DIR__.'/inc/bnb-settings-style-gen.php'; /*notification bar style sheet genaretor*/
 
  if(function_exists('wp_footer')){
-     add_action( 'wp_footer', 'bnb_inject', /*priority*/ 9999999 );
+     add_action( 'wp_footer', 'bnbar_inject', /*priority*/ 9999999 );
  }elseif(function_exists('wp_head')){
-    add_action( 'wp_head', 'bnb_inject', /*priority*/ 9999999 );
+    add_action( 'wp_head', 'bnbar_inject', /*priority*/ 9999999 );
  }
 
- function bnb_inject(){
+ function bnbar_inject(){
      echo '<!-bnb-start->';
-     echo show_bnb();
+     echo bnbar_show_bnb();
      echo '<!-bnb-end->';
  }
 

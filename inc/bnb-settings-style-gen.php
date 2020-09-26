@@ -1,9 +1,9 @@
 <?php
-function css_gen(){
+function bnbar_css_gen(){
     $css='<style type="text/css">';
     $css.='    .bnb {';
     $css.='        position: fixed;';
-        switch (carbon_get_theme_option('bnb_position')) {
+        switch (carbon_get_theme_option('bnbar_position')) {
             case '1':
                 $css.='        position: fixed;';
                 break;
